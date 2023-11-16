@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_purchaseorder_document"
+        inherit_id="jt_mrp_otf.report_purchaseorder_document">
+        <xpath expr="//td[@name='td_code']" position="inside">
+            <t t-call="jt_product_vendorcodes.inject_vendor_code">
+                <t t-set="jt_vendor_id" t-value="o.partner_id.commercial_partner_id" />
+                <t t-set="jt_product_id" t-value="line.product_id"/>
+            </t>
+        </xpath>
+        <xpath expr="//span[@t-field='bom_line.product_id.code']" position="after">
+            <t t-call="jt_product_vendorcodes.inject_vendor_code">
+                <t t-set="jt_vendor_id" t-value="o.partner_id.commercial_partner_id" />
+                <t t-set="jt_product_id" t-value="bom_line.product_id"/>
+            </t>
+        </xpath>        
+    </template>
+
+
+
+    <template id="inject_vendor_code" name="inject vendor code">
+        <t t-if="jt_vendor_id and jt_product_id">
+            <span class="vendor_code text-monospace text-info">[<t
+                    t-out="jt_product_id._get_vendor_code(jt_vendor_id)" />]</span>
+        </t>
+        <t t-else=""> </t>
+    </template>
+
+</odoo>
