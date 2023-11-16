@@ -21,8 +21,11 @@
 
     <template id="inject_vendor_code" name="inject vendor code">
         <t t-if="jt_vendor_id and jt_product_id">
-            <span class="vendor_code text-monospace text-info">[<t
-                    t-out="jt_product_id._get_vendor_code(jt_vendor_id)" />]</span>
+            <t t-set="vendor_code" t-value="jt_product_id._get_vendor_code(jt_vendor_id)"/>
+            <t t-if="vendor_code">
+                <span class="vendor_code text-monospace text-info">[<t
+                    t-out="jt_product_id._get_vendor_code(jt_vendor_id)" />]</span>                
+            </t>
         </t>
         <t t-else=""> </t>
     </template>
