@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="vendorcodes_tree" model="ir.ui.view">
+        <field name="name">jt_product_vendorcode.view.tree</field>
+        <field name="model">jt.product.vendorcode</field>
+        <field name="arch" type="xml">
+            <tree string="Vendorcode mappings" editable="bottom" create="1" edit="1">
+                <field name="sequence"  widget="handle" />
+                <field name="code"/>
+                <field name="product_id"/>
+                <field name="vendor_ids" widget="many2many_tags"/>
+                <field name="create_date" optional="hide"/>
+                <field name="write_date" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_vendorcode_tree" model="ir.actions.act_window">
+        <field name="name">Vendorcodes</field>
+        <field name="res_model">jt.product.vendorcode</field>
+        <field name="view_mode">tree</field>
+        <!-- <field name="domain">[]</field>
+        <field name="context">{}</field> -->
+        <field name="help" type="html">
+            <p>Vendorcodes go here</p>
+        </field>
+    </record>
+
+
+
+    <menuitem action="action_vendorcode_tree" id="action_vendorcode_tree2"
+        parent="stock.menu_stock_inventory_control" groups="base.group_system"
+        sequence="510"/>
+
+</odoo>
