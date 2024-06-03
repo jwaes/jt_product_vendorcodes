@@ -11,4 +11,19 @@
         </xpath>
     </template>    
 
+    <template id='stock_report_delivery_aggregated_move_lines' inherit_id="stock.stock_report_delivery_aggregated_move_lines">
+        <xpath expr="//td[1]" position="inside">
+            <t t-call="jt_product_vendorcodes.inject_vendor_code">
+                <t t-set="jt_vendor_id" t-value="o.partner_id.commercial_partner_id" />
+                <t t-set="jt_product_id" t-value="aggregated_lines[line]['product']"/>
+            </t>
+            
+            <t t-call="jt_product_vendorcodes.inject_vendor_code">
+                <t t-set="jt_vendor_id" t-value="o.move_ids_without_package[0].partner_id.commercial_partner_id" />
+                <t t-set="jt_product_id" t-value="aggregated_lines[line]['product']"/>
+            </t>            
+          
+        </xpath>
+    </template>
+
 </odoo>
