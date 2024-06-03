@@ -13,5 +13,6 @@ class ProductVendorCode(models.Model):
         help="Gives the sequence order when displaying.")
     
     code = fields.Char('code', required=True)
+    ean = fields.Char('ean')
     product_id = fields.Many2one('product.product', string='Product', required=True)
     vendor_ids = fields.Many2many('res.partner', string='Vendors', required=True)

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document_vendorcode" name="template_name"
+        inherit_id="account.report_invoice_document">
+        <xpath expr="//td[@name='account_invoice_line_name']" position="inside">
+
+            <t t-call="jt_product_vendorcodes.inject_vendor_code">
+                <t t-set="jt_vendor_id" t-value="o.partner_id.commercial_partner_id" />
+                <t t-set="jt_product_id" t-value="line.product_id"/>
+            </t>
+
+        </xpath>
+    </template>
+</odoo>

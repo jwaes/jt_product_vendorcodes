@@ -15,7 +15,7 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Inventory',
-    'version': '0.4',
+    'version': '0.6',
 
     # any module necessary for this one to work correctly
     'depends': ['base','stock','purchase','jt_mrp_otf'],
@@ -26,5 +26,7 @@
         'views/product_views.xml',
         'views/vendorcode_views.xml',
         'report/purchase_order_templates.xml',
+        'report/report_deliveryslip.xml',
+        'report/report_invoice.xml',
     ],
 }
