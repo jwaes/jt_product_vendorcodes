@@ -18,7 +18,7 @@
     </template>
 
 
-
+<!-- 
     <template id="inject_vendor_code" name="inject vendor code">
         <t t-if="jt_vendor_id and jt_product_id">
             <t t-set="vendor_code" t-value="jt_product_id._get_vendor_code(jt_vendor_id)"/>
@@ -28,6 +28,6 @@
             </t>
         </t>
         <t t-else=""> </t>
-    </template>
+    </template> -->
 
 </odoo>
